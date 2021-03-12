@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BNP PARIBAS co-browsing</title>
+  <style>
+    body {
+      font-family: 'Noto Sans','Arial','Helvetica','sans-serif';
+    }
+    .grid-container {
+      display: grid;
+      grid-template-rows: 15% 85%;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      grid-gap: 20px;
+      grid-template-areas: 'header' 'main';
+    }
+
+    .header-queue {
+      grid-area: header;
+      background-color: #00965e;
+      vertical-align: middle;
+      text-align: center;
+      justify-content: center;
+      color: white;
+      padding: 21px;
+      letter-spacing: 1px;
+    }
+
+    .header {
+      grid-area: header;
+      background-color: white;
+      vertical-align: middle;
+      text-align: center;
+      justify-content: center;
+      padding: 20px;
+      letter-spacing: 1px;
+    }
+    .main-container {
+      grid-area: main;
+      position: relative;
+      margin-left: 30px;
+      margin-right: 30px;
+      margin-bottom: 50px;
+      background-image: url("https://images.unsplash.com/photo-1455729552865-3658a5d39692?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80");
+      /* background-image: url("https://images.unsplash.com/photo-1470058869958-2a77ade41c02?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3900&q=80"); */
+      /* background-image: url("https://securities.bnpparibas.com/files/live/sites/web/files/insights/changing-attitudes-to-risk/img_bp2s_sustainable_investing_2019-09-03.jpg"); */
+      /* background-image: url("https://cdn-pays.bnpparibas.com/wp-content/blogs.dir/66/files/2020/07/CEO_office_stairs_009-L-Cropped-950x300.jpg"); */
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-size: 100%;
+      padding: 10px;
+    }
+    .text-container {
+      display: inline-block;
+      margin: auto;
+      background-color: #02965e5e;
+      color: white;
+      text-align: left;
+      padding: 30px;
+      margin-top: 50px;
+      margin-left: 50px;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+    #sessionId {
+      display: none;
+    }
+    #agreeButton {
+      display: inline-block;
+      width: 110px;
+      background-color: #fff;
+      color: black;
+      padding: 13px 20px;
+      margin: 3% 1%;
+      text-align: center;
+      font-weight: bold;
+      font-size: 14px;
+      border: 0 solid transparent;
+      border-radius: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    #agreeButton:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+    #cancelButton {
+      display: inline-block;
+      width: 110px;
+      background-color: #fff;
+      color: black;
+      padding: 13px 20px;
+      margin: 3% 1%;
+      border: 0 solid transparent;
+      border-radius: 2px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 14px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    #cancelButton:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+    .spinner {
+      width: 60px;
+      height: 60px;
+      position: relative;
+      margin-top: 50px;
+      margin-bottom: 20px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .double-bounce1, .double-bounce2 {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: #0060a0;
+      opacity: 0.6;
+      position: absolute;
+      top: 0;
+      left: 0;
+      -webkit-animation: bounce 2.0s infinite ease-in-out;
+      animation: bounce 2.0s infinite ease-in-out;
+    }
+    .double-bounce2 {
+      -webkit-animation-delay: -1.0s;
+      animation-delay: -1.0s;
+    }
+    @-webkit-keyframes bounce {
+      0%, 100% { -webkit-transform: scale(0.0) }
+      50% { -webkit-transform: scale(1.0) }
+    }
+    @keyframes bounce {
+      0%, 100% { 
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+      } 50% { 
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+      }
+    }
+
+  </style>
+
+</head>
+<body>
+    <div class="header-queue">
+        <!-- <h3>SUITSUPPLY CO-BROWSING</h3>  -->
+    </div>
+
+  <div class="grid-container">
+      
+    <div class="header">
+      <a href="https://www.bnpparibas.nl/en/" class="custom-logo-link" rel="home">
+        <img src="https://cdn-pays.bnpparibas.com/wp-content/themes/bnpparibasworld/assets/img/logo-default.png" class="logostyle" alt="BNP PARIBAS Logo" width="168px" height="37px">
+    </a>
+    <!-- <span class="country">Netherlands</span> -->
+    <div>
+    <span id="description">The bank for a changing world</span>
+    </div>
+    </div>
+    <div class="main-container"> 
+        <!-- <img src="reversewave.jpg" alt="Surfly wave"> -->
+      <div class="text-container">
+        <h2 id="dialog">Would you like to start a co-browsing session with a BNP Paribas adviser?</h2>
+        <h5><i>Turning changes into Opportunities</i></h5>
+        <h3 id="sessionId"></h3>
+        <button id="agreeButton">Agree</button>
+        <button id="cancelButton">Cancel</button>
+      </div>
+      <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+      </div>
+    </div>
+    </div>
+
+  <script>
+
+    document.getElementsByClassName("spinner")[0].hidden = true;
+    document.getElementsByClassName("double-bounce1")[0].hidden = true;
+    document.getElementsByClassName("double-bounce2")[0].hidden = true;
+
+
+    (function(s,u,r,f,l,y){s[f]=s[f]||{init:function(){s[f].q=arguments}};
+    l=u.createElement(r);y=u.getElementsByTagName(r)[0];l.async=1;
+    l.src='https://surfly.com/surfly.js';y.parentNode.insertBefore(l,y);})
+    (window,document,'script','Surfly');
+    
+    var settings = {
+      widget_key:"42afe6cb45c548409d6fa9cde16f97c5",
+    };
+    
+    Surfly.init(settings, function(initResult) {
+        if (initResult.success) {
+          var agreeButton = document.getElementById("agreeButton");
+          agreeButton.addEventListener("click", function() {
+            Surfly.session().startLeader();
+          })
+          if (Surfly.isInsideSession) {
+            var agreeButton = document.getElementById("agreeButton");
+            agreeButton.style.display = "none";
+            var cancelButton = document.getElementById("cancelButton");
+            cancelButton.style.display = "none";
+            var dialog = document.getElementById("dialog");
+            dialog.innerText = "Please wait until a MetLife adviser joins you..."
+            document.getElementsByClassName("spinner")[0].hidden = false;
+            document.getElementsByClassName("double-bounce1")[0].hidden = false;
+            document.getElementsByClassName("double-bounce2")[0].hidden = false;  
+        }
+        Surfly.on("session_created", function(session, event) {
+            var sessionId = document.getElementById("sessionId");
+            sessionId.style.display = "block";
+            sessionId.innerText = "Your session code is: " + session.pin;
+            })
+        .on("viewer_joined", function(session, event) {
+            if (event.count == 1) {
+              session.relocate("https://www.bnpparibas.nl/");
+            }
+              });
+        }
+        else{
+            console.log("Surfly was unable to initialize properly.");
+        }
+    });
+
+    var cancelButton = document.getElementById("cancelButton");
+    cancelButton.addEventListener("click", function() {
+      location.assign("https://www.bnpparibas.nl/");
+    })
+
+    </script>
+  
+</body>
+</html>
