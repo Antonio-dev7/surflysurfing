@@ -196,12 +196,31 @@
     });
 
     if(!Surfly.isInsideSession){
-        icPatronChat.init({serverHost:'https://home-b32.nice-incontact.com',bus_no:4599130,poc:'1605d414-489c-4df4-83b1-334dbeb0ab2c',params:['FirstName','Last Name','first.last@company.com',555-555-5555]});
-        // Add your chat solution's snippet below
-        // ...
-        // End of chat snippet
-    }
 
+    
+    // Set webchat configuration
+    var daktelaGuiConfig = {
+        "server": "https://martinmtest.daktela.com/",
+        "accessToken": "1oo1r7r78r66qr74r5r8053042pn7p43",
+    };
+
+    // Create async script element
+    var daktelaScriptEl = document.createElement("script");
+    (function(attrs) {
+        Object.keys(attrs).forEach(function(key) {
+            daktelaScriptEl.setAttribute(key, attrs[key]);
+        });
+    })
+    ({"src": daktelaGuiConfig.server + "external/web/web.js", "type": "text/javascript", "async": true, "charset": "utf-8"});
+    daktelaScriptEl.onload = function() {
+        var daktelaWeb = new daktelaGui();
+        daktelaWeb.init(daktelaGuiConfig);
+    };
+    document.getElementsByTagName("head")[0].appendChild(daktelaScriptEl);
+
+
+    
+}
 
 
 
