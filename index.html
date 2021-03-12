@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BNP PARIBAS co-browsing</title>
+
+<!--LINK FOR CHAT SOLUTION-->
+  <script src="https://home-b32.nice-incontact.com/inContact/ChatClient/js/embed.min.js"></script>
+<!--LINK FOR CHAT SOLUTION-->  
+
   <style>
     body {
       font-family: 'Noto Sans','Arial','Helvetica','sans-serif';
@@ -178,58 +183,80 @@
     </div>
 
   <script>
-
-    document.getElementsByClassName("spinner")[0].hidden = true;
-    document.getElementsByClassName("double-bounce1")[0].hidden = true;
-    document.getElementsByClassName("double-bounce2")[0].hidden = true;
-
-
-    (function(s,u,r,f,l,y){s[f]=s[f]||{init:function(){s[f].q=arguments}};
+      (function(s,u,r,f,l,y){s[f]=s[f]||{init:function(){s[f].q=arguments}};
     l=u.createElement(r);y=u.getElementsByTagName(r)[0];l.async=1;
     l.src='https://surfly.com/surfly.js';y.parentNode.insertBefore(l,y);})
     (window,document,'script','Surfly');
-    
-    var settings = {
-      widget_key:"42afe6cb45c548409d6fa9cde16f97c5",
-    };
-    
-    Surfly.init(settings, function(initResult) {
-        if (initResult.success) {
-          var agreeButton = document.getElementById("agreeButton");
-          agreeButton.addEventListener("click", function() {
-            Surfly.session().startLeader();
-          })
-          if (Surfly.isInsideSession) {
-            var agreeButton = document.getElementById("agreeButton");
-            agreeButton.style.display = "none";
-            var cancelButton = document.getElementById("cancelButton");
-            cancelButton.style.display = "none";
-            var dialog = document.getElementById("dialog");
-            dialog.innerText = "Please wait until a MetLife adviser joins you..."
-            document.getElementsByClassName("spinner")[0].hidden = false;
-            document.getElementsByClassName("double-bounce1")[0].hidden = false;
-            document.getElementsByClassName("double-bounce2")[0].hidden = false;  
-        }
-        Surfly.on("session_created", function(session, event) {
-            var sessionId = document.getElementById("sessionId");
-            sessionId.style.display = "block";
-            sessionId.innerText = "Your session code is: " + session.pin;
-            })
-        .on("viewer_joined", function(session, event) {
-            if (event.count == 1) {
-              session.relocate("https://www.bnpparibas.nl/");
-            }
-              });
-        }
-        else{
-            console.log("Surfly was unable to initialize properly.");
+
+    Surfly.init({widget_key:'42afe6cb45c548409d6fa9cde16f97c5', docked_only: true}, function(init) {
+        if (init.success) {
+        // display the default Surfly button
+            Surfly.button();
         }
     });
 
-    var cancelButton = document.getElementById("cancelButton");
-    cancelButton.addEventListener("click", function() {
-      location.assign("https://www.bnpparibas.nl/");
-    })
+    if(!Surfly.isInsideSession){
+        icPatronChat.init({serverHost:'https://home-b32.nice-incontact.com',bus_no:4599130,poc:'1605d414-489c-4df4-83b1-334dbeb0ab2c',params:['FirstName','Last Name','first.last@company.com',555-555-5555]});
+        // Add your chat solution's snippet below
+        // ...
+        // End of chat snippet
+    }
+
+
+
+
+
+    // document.getElementsByClassName("spinner")[0].hidden = true;
+    // document.getElementsByClassName("double-bounce1")[0].hidden = true;
+    // document.getElementsByClassName("double-bounce2")[0].hidden = true;
+
+
+    // (function(s,u,r,f,l,y){s[f]=s[f]||{init:function(){s[f].q=arguments}};
+    // l=u.createElement(r);y=u.getElementsByTagName(r)[0];l.async=1;
+    // l.src='https://surfly.com/surfly.js';y.parentNode.insertBefore(l,y);})
+    // (window,document,'script','Surfly');
+    
+    // var settings = {
+    //   widget_key:"42afe6cb45c548409d6fa9cde16f97c5",
+    // };
+    
+    // Surfly.init(settings, function(initResult) {
+    //     if (initResult.success) {
+    //       var agreeButton = document.getElementById("agreeButton");
+    //       agreeButton.addEventListener("click", function() {
+    //         Surfly.session().startLeader();
+    //       })
+    //       if (Surfly.isInsideSession) {
+    //         var agreeButton = document.getElementById("agreeButton");
+    //         agreeButton.style.display = "none";
+    //         var cancelButton = document.getElementById("cancelButton");
+    //         cancelButton.style.display = "none";
+    //         var dialog = document.getElementById("dialog");
+    //         dialog.innerText = "Please wait until a MetLife adviser joins you..."
+    //         document.getElementsByClassName("spinner")[0].hidden = false;
+    //         document.getElementsByClassName("double-bounce1")[0].hidden = false;
+    //         document.getElementsByClassName("double-bounce2")[0].hidden = false;  
+    //     }
+    //     Surfly.on("session_created", function(session, event) {
+    //         var sessionId = document.getElementById("sessionId");
+    //         sessionId.style.display = "block";
+    //         sessionId.innerText = "Your session code is: " + session.pin;
+    //         })
+    //     .on("viewer_joined", function(session, event) {
+    //         if (event.count == 1) {
+    //           session.relocate("https://www.bnpparibas.nl/");
+    //         }
+    //           });
+    //     }
+    //     else{
+    //         console.log("Surfly was unable to initialize properly.");
+    //     }
+    // });
+
+    // var cancelButton = document.getElementById("cancelButton");
+    // cancelButton.addEventListener("click", function() {
+    //   location.assign("https://www.bnpparibas.nl/");
+    // })
 
     </script>
   
