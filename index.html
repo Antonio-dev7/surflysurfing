@@ -9,6 +9,109 @@
   <!-- <script src="https://home-b32.nice-incontact.com/inContact/ChatClient/js/embed.min.js"></script> -->
 <!--LINK FOR CHAT SOLUTION-->  
 
+
+<script async="" src="https://surfly-us.com/surfly.js"></script>
+
+  <!-- style solution ----------------------------------------------------------------------->
+
+  <style>
+      #surfly-api-frame {
+	background: none transparent;
+	z-index: 2147483548!important;
+	border: 0;
+	overflow: hidden
+}
+
+#surfly-api-frame.surfly-invisible {
+	display: none!important
+}
+
+#surfly-api-frame.surfly-splash {
+	display: block!important;
+	position: fixed!important;
+	top: 0!important;
+	left: 0!important;
+	width: 100%!important;
+	height: 50px!important;
+	border: 0!important
+}
+
+@media(max-width:767px) {
+	#surfly-api-frame.surfly-splash {
+		height: auto!important
+	}
+}
+
+#surfly-api-frame.surfly-blocker,
+#surfly-api-frame.surfly-popup {
+	display: block!important;
+	position: fixed!important;
+	top: 0!important;
+	left: 0!important;
+	width: 100%!important;
+	height: 100%!important;
+	border: 0!important
+}
+
+#surfly-api-frame.surfly-button {
+	display: block!important;
+	position: fixed!important;
+	box-shadow: 0 0 12px 2px rgba(0, 0, 0, .2);
+	visibility: initial!important
+}
+
+#surfly-api-frame.surfly-button.surfly-button-position-bottomleft {
+	left: 80px!important;
+	bottom: 0!important;
+	width: 170px!important;
+	height: 26px!important;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px
+}
+
+#surfly-api-frame.surfly-button.surfly-button-position-bottomright {
+	right: 80px!important;
+	bottom: 0!important;
+	width: 170px!important;
+	height: 26px!important;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px
+}
+
+#surfly-api-frame.surfly-button.surfly-button-position-middleright {
+	right: 0!important;
+	top: 50%!important;
+	width: 26px!important;
+	height: 170px!important;
+	transform: translateY(-50%)!important;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px
+}
+
+#surfly-api-frame.surfly-button.surfly-button-position-middleleft {
+	left: 0!important;
+	top: 50%!important;
+	width: 26px!important;
+	height: 170px!important;
+	transform: translateY(-50%)!important;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px
+}
+
+.surfly-hide-ios>:not(.surfly-ignore) {
+	display: none
+}
+  </style>
+
+
+<style>
+    .chat-iframe-wrap {
+    z-index: 2147483999 !important;
+  }
+</style>
+
+  <!-- style solution ----------------------------------------------------------------------->
+
   <style>
     body {
       font-family: 'Noto Sans','Arial','Helvetica','sans-serif';
@@ -278,6 +381,7 @@
     // })
 
     </script>
+    <iframe id="surfly-api-frame" name="surfly-api-frame" class="surfly-invisible" scrolling="no"></iframe>
   
 </body>
 </html>
